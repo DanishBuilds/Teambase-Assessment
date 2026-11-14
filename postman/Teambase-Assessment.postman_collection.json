@@ -1,0 +1,84 @@
+{
+  "info": {
+    "name": "Teambase Assessment API",
+    "description": "Import with Teambase-Assessment.local.postman_environment.json. Run Login, copy token into environment if needed, then employees + premium.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "auth": { "type": "noauth" },
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+        },
+        "url": "{{baseUrl}}/api/auth/login"
+      }
+    },
+    {
+      "name": "Save employee",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Danish\",\n  \"lastName\": \"Nawaz\",\n  \"dateOfBirth\": \"1996-01-18\",\n  \"gender\": 0,\n  \"memberAdditionDate\": \"2025-03-15\"\n}"
+        },
+        "url": "{{baseUrl}}/api/employees"
+      }
+    },
+    {
+      "name": "Get premium (flat, by month)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/premium?employeeId={{employeeId}}&pricingModel=0&prorataMethod=1&policyStartDate={{policyStartDate}}&policyEndDate={{policyEndDate}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "premium"],
+          "query": [
+            { "key": "employeeId", "value": "{{employeeId}}" },
+            { "key": "pricingModel", "value": "0" },
+            { "key": "prorataMethod", "value": "1" },
+            { "key": "policyStartDate", "value": "{{policyStartDate}}" },
+            { "key": "policyEndDate", "value": "{{policyEndDate}}" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get premium (age rated, by days)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/premium?employeeId={{employeeId}}&pricingModel=1&prorataMethod=0&policyStartDate={{policyStartDate}}&policyEndDate={{policyEndDate}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "premium"],
+          "query": [
+            { "key": "employeeId", "value": "{{employeeId}}" },
+            { "key": "pricingModel", "value": "1" },
+            { "key": "prorataMethod", "value": "0" },
+            { "key": "policyStartDate", "value": "{{policyStartDate}}" },
+            { "key": "policyEndDate", "value": "{{policyEndDate}}" }
+          ]
+        }
+      }
+    }
+  ]
+}
