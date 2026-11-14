@@ -22,8 +22,8 @@ I added JWT so protected endpoints are easy to try in Swagger/Postman.
 | | |
 |---|---|
 | Login | `POST /api/auth/login` |
-| User | `reviewer` |
-| Pass | `Review@123` |
+| User | `test-user` |
+| Pass | `Test@123` |
 
 Header: `Authorization: Bearer <token>`
 
