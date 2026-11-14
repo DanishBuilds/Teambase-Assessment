@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Teambase.Assessment.Api/Teambase.Assessment.Api.csproj" />
+  <Project Path="Teambase.Assessment.Application/Teambase.Assessment.Application.csproj" />
+  <Project Path="Teambase.Assessment.Domain/Teambase.Assessment.Domain.csproj" />
+  <Project Path="Teambase.Assessment.Infrastructure/Teambase.Assessment.Infrastructure.csproj" />
+  <Project Path="Teambase.Assessment.Tests/Teambase.Assessment.Tests.csproj" />
+</Solution>

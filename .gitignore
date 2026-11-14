@@ -1,0 +1,25 @@
+## Build
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+## SQLite
+*.db
+*.db-shm
+*.db-wal
+
+## IDE
+.idea/
+*.swp
+
+## OS
+Thumbs.db
+.DS_Store
+
+## Postman desktop sync (use json in postman/ root)
+.postman/
+postman/collections/
+postman/environments/
+postman/globals/
